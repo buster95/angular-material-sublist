@@ -1,0 +1,54 @@
+md-sublist md-list-item {
+    cursor: pointer;
+}
+
+
+/* md-sublist > md-list-item:hover {
+    background: rgba(0, 0, 0, 0.1);
+} */
+
+md-sublist > md-list-item i {
+    transition: all 0.3s;
+    transition-timing-function: ease;
+}
+
+md-sublist.active > md-list-item i {
+    transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+}
+
+@keyframes subListAnimation {
+    0% {
+        height: 0px;
+        display: none;
+    }
+    100% {
+        height: auto;
+        display: block;
+    }
+}
+
+md-sublist > md-list {
+    height: 0;
+    /* max-height: 0; */
+    overflow: hidden;
+    transition: all 0.5s;
+    transition-timing-function: ease;
+    /* animation-name: subListAnimation;
+    animation-duration: 0.5s;
+    animation-timing-function: ease;
+    animation-iteration-count: 1;
+    animation-fill-mode: backwards; */
+}
+
+md-sublist.active > md-list {
+    height: auto;
+    /* max-height: 100%; */
+    /* animation-name: subListAnimation;
+    animation-duration: 0.5s;
+    animation-timing-function: ease;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards; */
+}

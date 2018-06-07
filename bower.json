@@ -1,0 +1,22 @@
+{
+  "name": "angular-material-sublist",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Walter Corrales <corraleswalter@live.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "directive"
+  ],
+  "dependencies": {
+    "angular": "^1.7.0",
+    "angular-material": "^1.1.9"
+  }
+}
