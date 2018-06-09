@@ -76,7 +76,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-angular.module('mdSublist', [])
+angular.module('mdSublist', ['ngMaterial'])
     .directive('mdSublist', ['$templateCache', function ($templateCache) {
         $templateCache.put('myViewFromCache', __WEBPACK_IMPORTED_MODULE_0__md_sublist_template_html___default.a);
         return {
@@ -84,14 +84,18 @@ angular.module('mdSublist', [])
             templateUrl: 'myViewFromCache',
             transclude: true,
             scope: {
-                "title": "@"
+                "text": "@",
+                "svgIcon": "@",
+                "svgIconPath": "@"
             },
             link: function ($scope, $element) {
                 $scope.toggle = function () {
                     var menu = angular.element($element[0]);
                     menu.toggleClass('active');
-                    console.log(menu);
                 };
+                if ($scope.svgIcon == undefined) {
+                    $scope.svgIcon = '';
+                }
             }
         }
     }]);
@@ -100,7 +104,7 @@ angular.module('mdSublist', [])
 /* 1 */
 /***/ (function(module, exports) {
 
-module.exports = " <md-list-item ng-click=toggle()> <p>{{title}}</p> <i style=height:24px;width:24px> <svg version=1.1 id=Layer_1 xmlns=http://www.w3.org/2000/svg xmlns:xlink=http://www.w3.org/1999/xlink x=0px y=0px width=24px height=24px viewBox=\"0 0 24 24\" enable-background=\"new 0 0 24 24\" xml:space=preserve> <path d=M8.59,16.59L13.17,12L8.59,7.41L10,6l6,6l-6,6L8.59,16.59z /> </svg> </i> </md-list-item> <md-list ng-transclude style=margin-left:40px;padding:0></md-list>";
+module.exports = " <md-list-item ng-click=toggle()> <md-icon md-svg-icon={{svgIcon}} ng-if=\"svgIcon!=''\"></md-icon> <p>{{text}}</p> <i style=height:24px;width:24px ng-click=toggle()> <svg version=1.1 id=Layer_1 xmlns=http://www.w3.org/2000/svg xmlns:xlink=http://www.w3.org/1999/xlink x=0px y=0px width=24px height=24px viewBox=\"0 0 24 24\" enable-background=\"new 0 0 24 24\" xml:space=preserve> <path d=M8.59,16.59L13.17,12L8.59,7.41L10,6l6,6l-6,6L8.59,16.59z /> </svg> </i> </md-list-item> <md-list ng-transclude></md-list>";
 
 /***/ }),
 /* 2 */
