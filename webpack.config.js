@@ -1,5 +1,6 @@
 var webpack = require('webpack');
 var extractWebpack = require('extract-text-webpack-plugin');
+var cssoWebpack = require('csso-webpack-plugin').default;
 
 module.exports = {
     entry: {
@@ -7,12 +8,12 @@ module.exports = {
         "angular-material-sublist.min": __dirname + '/directive/md-sublist.js'
     },
     output: {
-        "path": __dirname + "/src/",
+        "path": __dirname + "/",
         "filename": "[name].js",
         "publicPath": "./"
     },
     resolve: {
-        extensions: ['.html', '.js']
+        extensions: ['.html', '.js', '.css']
     },
     module: {
         rules: [
@@ -32,7 +33,7 @@ module.exports = {
             {
                 test: /\.css$/,
                 use: extractWebpack.extract({
-                    // fallback: "style-loader",s
+                    // fallback: "style-loader",
                     use: [
                         {
                             loader: 'css-loader'
@@ -48,5 +49,6 @@ module.exports = {
             minimize: true
         }),
         new extractWebpack('angular-material-sublist.css'),
+        new cssoWebpack({ pluginOutputPostfix: 'min' })
     ]
 };

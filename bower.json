@@ -12,10 +12,12 @@
     "bower_components",
     "test",
     "tests",
-    "directive"
+    "directive",
+    "*.svg",
+    "*.html",
+    "app.js"
   ],
   "dependencies": {
-    "angular": "^1.7.0",
     "angular-material": "^1.1.9"
   }
 }
