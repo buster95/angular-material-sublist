@@ -1,6 +1,6 @@
 <!-- CLASS TOGGLE: active -->
 <md-list-item ng-click="toggle()">
-    <md-icon md-svg-icon="{{svgIcon}}" ng-if="svgIcon!=''"></md-icon>
+    <md-icon md-svg-icon="{{svgIcon}}" ng-if="svgIcon!=''" ng-style="style"></md-icon>
     <p>{{text}}</p>
     <i style="height:24px;width:24px;" ng-click="toggle()">
         <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"

@@ -86,15 +86,20 @@ angular.module('mdSublist', ['ngMaterial'])
             scope: {
                 "text": "@",
                 "svgIcon": "@",
-                "svgIconPath": "@"
+                "svgIconPath": "@",
+                "svgIconColor": "@"
             },
             link: function ($scope, $element) {
                 $scope.toggle = function () {
                     var menu = angular.element($element[0]);
                     menu.toggleClass('active');
                 };
+                $scope.style = { fill: 'black' };
                 if ($scope.svgIcon == undefined) {
                     $scope.svgIcon = '';
+                }
+                if ($scope.svgIconColor != undefined) {
+                    $scope.style.fill = $scope.svgIconColor;
                 }
             }
         }
@@ -104,7 +109,7 @@ angular.module('mdSublist', ['ngMaterial'])
 /* 1 */
 /***/ (function(module, exports) {
 
-module.exports = " <md-list-item ng-click=toggle()> <md-icon md-svg-icon={{svgIcon}} ng-if=\"svgIcon!=''\"></md-icon> <p>{{text}}</p> <i style=height:24px;width:24px ng-click=toggle()> <svg version=1.1 id=Layer_1 xmlns=http://www.w3.org/2000/svg xmlns:xlink=http://www.w3.org/1999/xlink x=0px y=0px width=24px height=24px viewBox=\"0 0 24 24\" enable-background=\"new 0 0 24 24\" xml:space=preserve> <path d=M8.59,16.59L13.17,12L8.59,7.41L10,6l6,6l-6,6L8.59,16.59z /> </svg> </i> </md-list-item> <md-list ng-transclude></md-list>";
+module.exports = " <md-list-item ng-click=toggle()> <md-icon md-svg-icon={{svgIcon}} ng-if=\"svgIcon!=''\" ng-style=style></md-icon> <p>{{text}}</p> <i style=height:24px;width:24px ng-click=toggle()> <svg version=1.1 id=Layer_1 xmlns=http://www.w3.org/2000/svg xmlns:xlink=http://www.w3.org/1999/xlink x=0px y=0px width=24px height=24px viewBox=\"0 0 24 24\" enable-background=\"new 0 0 24 24\" xml:space=preserve> <path d=M8.59,16.59L13.17,12L8.59,7.41L10,6l6,6l-6,6L8.59,16.59z /> </svg> </i> </md-list-item> <md-list ng-transclude></md-list>";
 
 /***/ }),
 /* 2 */
